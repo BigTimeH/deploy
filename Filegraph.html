@@ -1,0 +1,125 @@
+<head>
+<style>
+ .quiz-chartTip {
+            padding: 5px 10px;
+            border: 1px solid rgba(0,0,0,.1);
+            border-radius: 4px;
+            background-color: rgba(255,255,255,.9);
+            box-shadow: 3px 3px 10px rgba(0,0,0,.1);
+            position: absolute;
+            z-index: 50;
+            max-width: 250px;
+        }
+
+        .quiz-graph {
+            padding: 10px; 
+            height: 370px;
+            width: 100%;
+        }
+
+        .quiz-graph .x-labels {
+            text-anchor: middle;
+			color: #ED7D31;
+        }
+
+        .quiz-graph .y-labels {
+            text-anchor: end;
+		
+        }
+
+        .quiz-graph .quiz-graph-grid {
+            stroke: #ccc;
+            stroke-dasharray: 0;
+            stroke-width: 1;
+        }
+
+        .label-title {
+            text-anchor: middle;
+            text-transform: uppercase;
+            font-size: 12px;
+            fill: gray;
+        }
+
+        .quiz-graph-dot, .quiz-graph-start-dot{
+            fill: rgba(0,112,210,1);
+            stroke-width: 2;
+            stroke: white;   
+        }
+</style>
+</head>
+<div class="slds-p-top--medium" style="height:100%; width:100%; margin">
+    <div>
+        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="quiz-graph">
+            <defs>
+                <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e5e5e5" stroke-width="1"></path>
+                </pattern>
+            </defs>
+            <rect x="50" width="calc(70% - 50px)" height="300px" fill="url(#grid)" stroke="gray"></rect>
+
+            
+            <g class="label-title">
+                <text x="30%" y="350">25/05/2020</text>
+            </g>   
+            <g class="x-labels">
+                <text x="150" y="320">18:00</text>
+                <text x="250" y="320">21:00</text>
+                <text x="350" y="320">00:00</text>
+                <text x="450" y="320">05:00</text>
+                <text x="550" y="320">08:00</text>
+                <text x="650" y="320">06:00</text>
+                <text x="750" y="320">14:00</text>
+				 <text x="850" y="320">57:00</text>
+            </g>
+            <g class="y-labels">
+                <text x="42" y="5">37%</text>   
+                <text x="42" y="55">36%</text>
+                <text x="42" y="105">35%</text>   
+                <text x="42" y="155">34%</text>
+                <text x="42" y="205">33%</text>   
+                <text x="42" y="255">32%</text>
+            
+            </g>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgba(99,224,238,.5);stop-opacity:1"></stop>
+                <stop offset="100%" style="stop-color:white;stop-opacity:0"></stop>
+            </linearGradient>
+            <polyline fill="url(#grad)" stroke="#34becd" stroke-width="0" points="
+            50,300
+            51,0
+            150,100
+            250,80
+            350,160
+            450,100
+            550,100
+            650,150
+            750,200
+            750,300
+		   850,400
+            "></polyline>
+
+            <polyline fill="none" stroke="#34becd" stroke-width="2" points="
+            50,0
+            150,100
+            250,80
+            350,160
+            450,100
+            550,100
+            650,150
+            750,200
+			  850,250
+            "></polyline>
+            <g>
+                <circle class="quiz-graph-start-dot" cx="50" cy="0" data-value="7.2" r="6"></circle>
+                <circle class="quiz-graph-dot" cx="150" cy="100" data-value="8.1" r="6" q-title="32%" answer-count="200" percent-value="66%"></circle>
+                <circle class="quiz-graph-dot" cx="250" cy="80" data-value="7.7" r="6" q-title="33%" answer-count="220" percent-value="73%"></circle>
+                <circle class="quiz-graph-dot" cx="350" cy="160" data-value="6.8" r="6" q-title="34%" answer-count="140" percent-value="46%"></circle>
+                <circle class="quiz-graph-dot" cx="450" cy="100" data-value="6.7" r="6" q-title="35%" answer-count="200" percent-value="66%"></circle>
+                <circle class="quiz-graph-dot" cx="550" cy="100" data-value="6.7" r="6" q-title="36%" answer-count="200" percent-value="66%"></circle>
+                <circle class="quiz-graph-dot" cx="650" cy="150" data-value="6.7" r="6" q-title="37%" answer-count="150" percent-value="50%"></circle>
+               <circle class="quiz-graph-dot" cx="750" cy="200" data-value="6.7" r="6" q-title="Complited Quiz" answer-count="100" percent-value="33%"></circle>
+				 <circle class="quiz-graph-dot" cx="850" cy="250" data-value="6.7" r="6" q-title="Complited Quiz" answer-count="100" percent-value="33%"></circle>
+		   </g>
+        </svg>
+    </div>
+</div>
